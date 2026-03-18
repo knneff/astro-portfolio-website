@@ -1,0 +1,112 @@
+---
+const heading = "My Projects";
+const cta = { text: 'View All', href: '/projects' };
+
+const projects = [
+    {
+        title: "E-commerce Dashbord",
+        slug: "project-1",
+        description: "A fast, scalable admin panel for managing products, orders, and sales analytics. Built with React, Next.js, Firebase, and TailwindCSS.",
+        image: "/images/projects/project-1.png",
+        githubURL: "https://github.com/jamesqquick",
+        liveSiteURL: "https://jamesqquick.com"
+    },
+    {
+        title: "SaaS Landing Page",
+        slug: "project-2",
+        description: "A redesign of ABC’s landing page, improving UI/UX, conversion rates, and performance. Built with Next.js, TailwindCSS, and Framer Motion.",
+        image: "/images/projects/project-2.png",
+        githubURL: "https://github.com/jamesqquick",
+        liveSiteURL: "https://jamesqquick.com"
+    },
+    {
+        title: "DevTools Chrome Extension",
+        slug: "project-3",
+        description: "A Chrome DevTools extension for monitoring API requests in real-time. It provides live request logging and response analysis for developers.",
+        image: "/images/projects/project-3.png",
+        githubURL: "https://github.com/jamesqquick",
+        liveSiteURL: "https://jamesqquick.com"
+    }
+]
+---
+
+<section>
+    <div class="section-header">
+    <h2>
+        <!-- add the h2 heading -->
+        {heading}
+    </h2>
+    <!-- update the href and text using the cta object -->
+    <a href={cta.href}>{cta.text}</a>
+    </div>
+
+    <div class="projects-container">
+    <!-- dynamically render project cards -->
+    <!-- each card has a class of card, an image, and an h3 that links to the liveSiteURL -->
+    {
+        projects.map(project => (
+            <div class="card">
+                <img src={project.image} alt={project.title} />
+                <h3>
+                    <a href={project.liveSiteURL} target="_blank" rel="noopener noreferrer">
+                        {project.title}
+                    </a>
+                </h3>
+                <p>{project.description}</p>
+            </div>
+        ))
+    }
+    </div>
+</section>
+
+<style>
+    .projects-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+
+        .card {
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h3 {
+            margin-top: 20px;;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight:  600;
+            font-size: 18px;
+        }
+
+        @media (max-width: 700px) {
+            & {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+
+        h2 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 600;
+        } 
+
+        a {
+            size: 16px;
+            text-decoration: none;
+            font-weight: 400;
+            color: var(--dark);
+        }
+    }
+</style>
