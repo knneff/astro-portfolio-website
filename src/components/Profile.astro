@@ -1,8 +1,9 @@
 ---
 import ButtonLink from "../components/ButtonLink.astro";
+import Container from "../components/Container.astro";
 ---
 
-<div class="container">
+<Container>
     <header id="header">
 		<div class="content">
 			<h1>
@@ -28,23 +29,11 @@ import ButtonLink from "../components/ButtonLink.astro";
 		<!-- image goes here -->
         <img src="/images/me.png" alt="Profile Image" class="profile-image" /> 
     </header>
-</div>
+</Container>
 
 
 
 <style>
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 60px;
-
-        @media screen and (max-width: 1000px){
-            & {
-                padding: 0 24px;
-            }
-        }
-    }
-
     #header {
         display: grid;
         grid-template-columns: 540px 1fr;
