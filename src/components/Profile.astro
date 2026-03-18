@@ -1,3 +1,7 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+---
+
 <div class="container">
     <header id="header">
 		<div class="content">
@@ -15,14 +19,10 @@
 			</p>
 			<div class="button-container">
 				<!-- view projects link goes here -->
-                <a href="/projects" class="button-link secondary">
-                    View Projects
-                </a>
+                <ButtonLink href="/projects" text="View Projects" variant="secondary" />
 
 				<!-- download resume link goes here (hint: use the download property) -->
-				<a href="/resume.pdf" download class="button-link primary">
-					Download Resume
-				</a>
+                <ButtonLink href="/resume.pdf" text="Download Resume" isDownload />
 			</div>
 		</div>
 		<!-- image goes here -->
@@ -33,34 +33,6 @@
 
 
 <style>
-    .button-link {
-        padding: 12px 24px;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        font-weight: 500;
-        transition: background-color 0.3s ease;
-
-        &.primary {
-            background-color: var(--primary);
-            color: var(--white);
-
-            &:hover {
-                background-color: #301dbf; 
-            }
-        }
-
-        &.secondary {
-            
-            color: var(--primary);
-            border: 2px solid var(--primary);
-
-            &:hover {
-                background-color: #e0e4eb; 
-            }
-        }
-    }
-
     .container {
         max-width: 1100px;
         margin: 0 auto;
