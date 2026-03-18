@@ -1,24 +1,28 @@
 ---
 interface Props {
-  href: string;
-  text: string;
-  variant?: 'primary' | 'secondary';
-  isDownload?: boolean; 
+    href: string;
+    text: string;
+    variant?: "primary" | "secondary";
+    isDownload?: boolean;
 }
 
-const {href, text, variant="primary", isDownload} = Astro.props;
+const { href, text, variant = "primary", isDownload } = Astro.props;
 ---
 
-{ isDownload &&
-    <a href={href} class={'button-link ' + variant} download>
-        {text}
-    </a>    
+{
+    isDownload && (
+        <a href={href} class={"button-link " + variant} download>
+            {text}
+        </a>
+    )
 }
 
-{ !isDownload &&
-    <a href={href} class={'button-link ' + variant}>
-        {text}  
-    </a>
+{
+    !isDownload && (
+        <a href={href} class={"button-link " + variant}>
+            {text}
+        </a>
+    )
 }
 
 <style>
@@ -35,17 +39,16 @@ const {href, text, variant="primary", isDownload} = Astro.props;
             color: var(--white);
 
             &:hover {
-                background-color: #301dbf; 
+                background-color: #301dbf;
             }
         }
 
         &.secondary {
-            
             color: var(--primary);
             border: 2px solid var(--primary);
 
             &:hover {
-                background-color: #e0e4eb; 
+                background-color: #e0e4eb;
             }
         }
     }
