@@ -1,8 +1,10 @@
-<header id="header">
+<div class="container">
+    <header id="header">
 		<div class="content">
 			<h1>
 				<!-- header goes here (hint: use <span class="accent"> for accented text) -->
-                Hi. I am Ken. <span class="accent">Data Scientist</span> Aspirant!
+                <span>Hi. I am Ken.</span> 
+                <span><span class="accent">Data Scientist</span> Aspirant!</span>
 			</h1>
 			<p class="description">
 				<!-- description goes here -->
@@ -13,16 +15,116 @@
 			</p>
 			<div class="button-container">
 				<!-- view projects link goes here -->
-                <a href="/projects">
+                <a href="/projects" class="button-link secondary">
                     View Projects
                 </a>
 
 				<!-- download resume link goes here (hint: use the download property) -->
-				<a href="/resume.pdf" download>
+				<a href="/resume.pdf" download class="button-link primary">
 					Download Resume
 				</a>
 			</div>
 		</div>
 		<!-- image goes here -->
-        <img src="/images/me.png" alt="Profile Image" class="profile-image" />
-</header>
+        <img src="/images/me.png" alt="Profile Image" class="profile-image" /> 
+    </header>
+</div>
+
+
+
+<style>
+    .button-link {
+        padding: 12px 24px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+
+        &.primary {
+            background-color: var(--primary);
+            color: var(--white);
+
+            &:hover {
+                background-color: #301dbf; 
+            }
+        }
+
+        &.secondary {
+            
+            color: var(--primary);
+            border: 2px solid var(--primary);
+
+            &:hover {
+                background-color: #e0e4eb; 
+            }
+        }
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 60px;
+
+        @media screen and (max-width: 1000px){
+            & {
+                padding: 0 24px;
+            }
+        }
+    }
+
+    #header {
+        display: grid;
+        grid-template-columns: 540px 1fr;
+        justify-items: center;
+        gap: 80px;
+        align-items: center;
+
+        @media (max-width: 1000px) {
+            & {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 40px;
+
+                img {
+                    grid-row: 1;
+                }
+            }
+        }
+    }
+
+    h1 {
+        font-size: 44px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+
+        .accent {
+            color: var(--primary);     
+        }
+    }
+
+    .button-container {
+        display: flex;
+        gap: 10px;      
+    }
+
+    .description {
+        line-height: 28px;
+        color: var(--dark);
+        margin-bottom: 30px;
+    }
+
+    .profile-image {
+        width: 300px;
+        height: auto;
+    }
+
+    @media (max-width: 600px) {
+        .button-container {
+            flex-direction: column;
+            gap:10px;
+        }
+    }
+    
+</style>
