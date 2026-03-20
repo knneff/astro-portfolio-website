@@ -1,0 +1,68 @@
+---
+import Section from "./Section.astro";
+const email = "ken@example.com";
+const github = "https://github.com/ken";
+const linkedin = "https://linkedin.com/in/ken";
+const facebook = "https://facebook.com/ken";
+---
+
+<Section dark>
+    <footer>
+        <div class="icons-container">
+            <a href={`mailto:${email}`} target="_blank">
+                <img src="images/icons/email.svg" />
+            </a>
+            <a href={github} target="_blank">
+                <img src="images/icons/github.svg" />
+            </a>
+            <a href={linkedin} target="_blank">
+                <img src="images/icons/linkedin.svg" />
+            </a>
+            <a href={facebook} target="_blank">
+                <img src="images/icons/facebook.svg" />
+            </a>
+        </div>
+        <p class="rights-text">Copyright © 2025 Astra All rights reserved</p>
+        <p class="credit-text">
+            Images: <a href="http://flaticon.com/" target="_blank"
+                >Flaticon.com</a
+            >
+        </p>
+    </footer>
+</Section>
+
+<style>
+    footer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+            width: 30px;
+            height: auto;
+        }
+
+        .icons-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .credit-text {
+            color: var(--light);
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 500px) {
+            .icons-container {
+                flex-direction: column;
+                gap: 4px;
+                img {
+                    height: 20px;
+                }
+            }
+        }
+    }
+</style>
