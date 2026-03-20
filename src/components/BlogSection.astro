@@ -6,6 +6,10 @@ import HorizontalSeparator from "./HorizontalSeparator.astro";
 import BlogCard from "./BlogCard.astro";
 
 const blogs = await getCollection("blogs");
+const sortedBlogs = blogs.sort((a, b) => {
+  return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+});
+const recentBlogs = sortedBlogs.slice(0, 3);
 const heading = "Blog";
 const cta = { text: "View blog", href: "/blog" };
 ---
@@ -13,7 +17,7 @@ const cta = { text: "View blog", href: "/blog" };
 <Section>
     <SectionHeader heading={heading} cta={cta} />
     {
-        blogs.map((blog) => 
+        recentBlogs.map((blog) => 
             <BlogCard blog={blog} />
             <HorizontalSeparator />
         )
