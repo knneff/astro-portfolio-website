@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import HorizontalSeparator from "../components/HorizontalSeparator.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = await getCollection("projects");
+const heading = "My Projects";
+---
+
+<Layout title={heading}>
+    <Section>
+        <h1>{heading}</h1>
+        {
+            projects.map((project) => (
+                <ProjectCard project={project} />
+                <HorizontalSeparator />
+            ))
+        }
+    </Section>
+</Layout>
+
