@@ -3,9 +3,11 @@ import BlogSection from "../components/BlogSection.astro";
 import Header from "../components/Header.astro";
 import MyProjectsSection from "../components/MyProjectsSection.astro";
 import Layout from "../layouts/Layout.astro";
+
+const heading = "Home";
 ---
 
-<Layout>
+<Layout title={heading}>
     <Header />
     <MyProjectsSection />
     <BlogSection />
